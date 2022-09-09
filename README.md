@@ -41,6 +41,14 @@
 15. 강의 마무리 
 
 
+# 실행 방법
+1. server 에 디렉토리에서 yarn install
+
+2. client 에 디렉토리에서 yarn install
+
+3. server 에 디렉토리에 npm run dev
+
+
 # React 앱 만들기 시작하기
 
 이 프로젝트는 [Create React App](https://github.com/facebook/create-react-app)으로 부트스트랩되었습니다.
