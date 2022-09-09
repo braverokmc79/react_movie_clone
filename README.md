@@ -4,10 +4,11 @@
 이건 완성본 John Ahn 소스=>
 ###  https://github.com/jaewonhimnae/react-youtube-clone
 
-##### 인프런   ==>     따라하며 배우는 노드, 리액트 시리즈 - 유튜브 사이트 만들기  https://www.inflearn.com/course/따라하며-배우는-노드-리액트-영화사이트-만들기#reviews
+#### 인프런   ==>     따라하며 배우는 노드, 리액트 시리즈 - 유튜브 사이트 만들기  
+#####  https://www.inflearn.com/course/따라하며-배우는-노드-리액트-영화사이트-만들기#reviews
 
 
-### 유튜브 강의 목록 :   https://www.youtube.com/playlist?list=PL9a7QRYt5fqkowXUgTj_tbkFClsPhO5XV
+#####  유튜브 강의 목록 :   https://www.youtube.com/playlist?list=PL9a7QRYt5fqkowXUgTj_tbkFClsPhO5XV
 
 
 ##### 강의 파일 : https://cdn.jsdelivr.net/gh/braverokmc79/react-youtube-clone@v1.0.0/Youtube%20Clone%20(Ko).pdf
