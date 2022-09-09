@@ -39,8 +39,9 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
-movie_api_key.js
-
 /server/mongodbURI.js
-
 /server/config/dev.js
+
+
+movie_api_key.js
+/client/src/components/MovieApiKey.js
