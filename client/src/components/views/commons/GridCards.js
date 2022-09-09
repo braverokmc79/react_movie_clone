@@ -6,12 +6,13 @@ import style from './GridCards.css';
 function GridCards(props) {
     return (
         <Col lg={6} md={8} xs={24}>
-            <div style={{ position: 'relative' }} >
+            <div style={{ position: 'relative', textAlign: 'center' }} >
                 <Link to={`/movie/${props.movieId}`}>
                     <img src={props.image} alt={props.movieName} className="img"
                         style={{
                             width: "80%",
-                            height: "auto"
+                            height: "auto",
+                            maxHeight: '400px'
                         }}
                     />
                 </Link>
