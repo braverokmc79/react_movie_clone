@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/alt-text */
 import React, { useState } from 'react';
 import LeftMenu from './Sections/LeftMenu';
 import RightMenu from './Sections/RightMenu';
@@ -5,6 +6,7 @@ import { Drawer, Button, Icon } from 'antd';
 
 import './Sections/Navbar.css';
 import { Link } from 'react-router-dom';
+import logo from '../../../assets/images/Logo.png';
 
 function NavBar() {
     const [visible, setVisible] = useState(false)
@@ -20,7 +22,7 @@ function NavBar() {
     return (
         <nav className="menu" style={{ position: 'fixed', zIndex: 5, width: '100%' }}>
             <div className="menu__logo">
-                <Link to="/">Logo</Link>
+                <Link to="/"><img src={logo} style={{ width: "110px" }} /></Link>
             </div>
             <div className="menu__container">
                 <div className="menu_left">
