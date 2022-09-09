@@ -1,20 +1,22 @@
-## [React JS 따라하며-배우는 리액트 노드 - 유튜브 클론 시리즈  - John Ahn ]
+## [React JS 따라하며-배우는 리액트 노드 - 무비앱 시리즈  - John Ahn ]
 
 
-이건 완성본 John Ahn 소스=>
-###  https://github.com/jaewonhimnae/react-youtube-clone
-
-#### 인프런   ==>     따라하며 배우는 노드, 리액트 시리즈 - 유튜브 사이트 만들기  
-#####  https://www.inflearn.com/course/따라하며-배우는-노드-리액트-영화사이트-만들기#reviews
+#### 인프런   ==>     https://www.inflearn.com/course/따라하며-배우는-노드-리액트-영화사이트-만들기#reviews 
 
 
-#####  유튜브 강의 목록 :   https://www.youtube.com/playlist?list=PL9a7QRYt5fqkowXUgTj_tbkFClsPhO5XV
+#####  유튜브 강의 목록 :  https://www.youtube.com/playlist?list=PL9a7QRYt5fqkowXUgTj_tbkFClsPhO5XV
 
 
 ##### 강의 파일 : https://braverokmc79.github.io/react_movie_clone/movie_clone.html
 
 
-##### Boiler Plate  소스 : https://github.com/braverokmc79/ReactYoutubeCloneSeries
+##### 완성본 소스 (John Ahn)  :  https://github.com/jaewonhimnae/react-movie-app-ko
+
+### Boiler Plate  소스 : 
+
+1) https://github.com/jaewonhimnae/boilerplate-mern-stack
+
+2) https://github.com/braverokmc79/react_boiler_plate
 
 
 
