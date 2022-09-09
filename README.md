@@ -11,7 +11,7 @@
 #####  유튜브 강의 목록 :   https://www.youtube.com/playlist?list=PL9a7QRYt5fqkowXUgTj_tbkFClsPhO5XV
 
 
-##### 강의 파일 : https://cdn.jsdelivr.net/gh/braverokmc79/react-youtube-clone@v1.0.0/Youtube%20Clone%20(Ko).pdf
+##### 강의 파일 : https://braverokmc79.github.io/react_movie_clone/movie_clone.html
 
 
 ##### Boiler Plate  소스 : https://github.com/braverokmc79/ReactYoutubeCloneSeries
