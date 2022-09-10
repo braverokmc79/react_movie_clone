@@ -13,20 +13,19 @@ function Favorite(props) {
     useEffect(() => {
 
         let variables = {
-            userFrom: userFrom,
+            // userFrom: userFrom,
             movieId: movieId,
-            movieTitle: movieTitle,
-            moviePost: moviePost,
-            movieRunTime: movieRunTime
+            // movieTitle: movieTitle,
+            // moviePost: moviePost,
+            // movieRunTime: movieRunTime
         }
 
         console.log("variables : ", variables);
 
-
         Axios.post('/api/favorite/favoriteNumber', variables)
             .then(res => {
                 if (res.data.success) {
-                    console.log("res : ", res.data);
+                    console.log("res.data.favoriteNumber : ", res.data.favoriteNumber);
                 } else {
                     alert("숫자 정보를 가져오는데 실패 했습니다.");
                 }

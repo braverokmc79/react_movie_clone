@@ -7,6 +7,7 @@ import GridCards from '../commons/GridCards';
 import MainImage from '../LandingPage/Sections/MainImage';
 import MovieInfo from './Sections/MovieInfo';
 import Favorite from './Sections/Favorite';
+import { useSelector } from 'react-redux';
 
 
 function MovieDetail(props) {
@@ -15,7 +16,7 @@ function MovieDetail(props) {
     const [Movie, setMovie] = useState([]);
     const [Casts, setCasts] = useState([]);
     const [ActorToggle, setActorToggle] = useState(false);
-
+    const user = useSelector(state => state.user)
     useEffect(() => {
 
         let endpointCrew = `${API_URL}movie/${movieId}/credits?api_key=${MOVIE_API_KEY}`;
@@ -65,9 +66,11 @@ function MovieDetail(props) {
             {/* Body */}
             <div style={{ width: '85%', margin: '1rem auto' }}>
 
-                <div style={{ display: 'flex', justifyContent: 'flex-end' }} >
-                    <Favorite movieInfo={Movie} movieId={movieId} userFrom={localStorage.getItem("userId")} />
-                </div>
+                {user.userData && user.userData.isAuth &&
+                    <div style={{ display: 'flex', justifyContent: 'flex-end' }} >
+                        <Favorite movieInfo={Movie} movieId={movieId} userFrom={localStorage.getItem("userId")} />
+                    </div>
+                }
 
 
                 {/* Movie Info */}

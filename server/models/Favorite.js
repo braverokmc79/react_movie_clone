@@ -1,10 +1,10 @@
 const mongoose = require('mongoose');
-const Schema = mongoose.Schema();
+const Schema = mongoose.Schema  ;
 
 
 const favoriteSchema = Schema({
     userFrom: {
-        type: Schema.types.ObjectId,
+        type: Schema.Types.ObjectId,
         ref: 'User'
     },
 
