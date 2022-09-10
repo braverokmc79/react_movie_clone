@@ -37,6 +37,31 @@ router.post("/favorited", (req, res) => {
 });
 
 
+//좋아요 추가
+router.post("/addToFavorite", (req, res) => {
+    const favorite = new Favorite(req.body);
+
+    favorite.save((err, doc) => {
+        if (err) return res.status(400).send(err);
+        res.status(200).json({ success: true })
+    })
+});
+
+
+
+//좋아요 삭제
+router.post("/removeFromFavorite", (req, res) => {
+
+    Favorite.findOneAndDelete({ movieId: req.body.movieId, userFrom: req.body.userFrom })
+        .exec((err, doc) => {
+            if (err) return res.status(400).send(err);
+            res.status(200).json({ success: true, doc });
+        })
+
+});
+
+
+
 
 
 module.exports = router;
