@@ -1,14 +1,20 @@
 import React, { useEffect, useState } from 'react'
 import './FavoritePage.css';
 import Axios from 'axios';
-import { Button } from 'antd';
+import { Button, message, Popover } from 'antd';
 import { Link } from 'react-router-dom';
 import { IMAGE_BASE_URL } from '../../Config';
+
 
 function FavoritePage() {
     const [Favorites, setFavorites] = useState([]);
 
     useEffect(() => {
+        fetchFavoriteMovie();
+
+    }, [])
+
+    const fetchFavoriteMovie = () => {
         Axios.post("/api/favorite/getFavoritedMovie", { userFrom: localStorage.getItem('userId') })
             .then(res => {
                 if (res.data.success) {
@@ -20,8 +26,53 @@ function FavoritePage() {
             }).catch(err => {
                 console.error("에러 :", err);
             });
+    }
 
-    }, [])
+    const onClickDelete = (movieId, userFrom) => {
+        const variables = {
+            movieId,
+            userFrom
+        }
+
+        if (window.confirm("정말 삭제 하시겠습니까?")) {
+            Axios.post("/api/favorite/removeFromFavorite", variables)
+                .then(res => {
+                    if (res.data.success) {
+                        fetchFavoriteMovie();
+                    } else {
+                        alert("리스트에서 지우는데 실패했습니다.");
+                    }
+                })
+        }
+
+    }
+
+    const renderCards = Favorites.map((favorite, index) => {
+        const content = (
+            <div>
+                {favorite.moviePost ?
+                    <img src={`${IMAGE_BASE_URL}w500${favorite.moviePost}`} alt={favorite.movieTitle} /> : "no image"
+                }
+            </div>
+        )
+
+        return <tr key={index}>
+            <td style={{ cursor: "pointer" }}>
+                <Popover content={content} title={favorite.movieTitle} >
+                    <img src={`${IMAGE_BASE_URL}w200${favorite.moviePost}`} alt={favorite.movieTitle} />
+                </Popover>
+            </td>
+
+
+            <td>
+                <Link to={`/movie/${favorite.movieId}`}>
+                    {favorite.movieTitle}
+                </Link>
+            </td>
+            <td>{favorite.movieRunTime}분</td>
+            <td><Button type="danger" onClick={() => onClickDelete(favorite.movieId, favorite.userFrom)}>삭제</Button></td>
+        </tr>
+    })
 
     return (
         <div style={{ width: '85%', margin: '3rem auto' }}>
@@ -49,24 +100,12 @@ function FavoritePage() {
                     _id: "631c5166f25fe1c926436a66"
                 */}
                 <tbody>
-                    {
-                        Favorites.map((favorite, index) => (
-                            <tr key={index}>
-                                <td>
-                                    <Link to={`/movie/${favorite.movieId}`}>
-                                        <img src={`${IMAGE_BASE_URL}w200${favorite.moviePost}`} alt={favorite.movieTitle} />
-                                    </Link>
-                                </td>
-                                <td>{favorite.movieTitle}</td>
-                                <td>{favorite.movieRunTime}</td>
-                                <td><Button type="danger">삭제</Button></td>
-                            </tr>
-                        ))
-                    }
+                    {renderCards}
+
                 </tbody>
             </table>
 
-        </div>
+        </div >
     )
 }
 

@@ -1,3 +1,4 @@
+const e = require('express');
 const express = require('express');
 const router = express.Router();
 const { Favorite } = require("../models/Favorite");
@@ -68,6 +69,16 @@ router.post('/getFavoritedMovie', (req, res) => {
         .exec((err, favorites) => {
             if (err) return res.status(400).send(err);
             res.status(200).json({ success: true, favorites });
+        })
+})
+
+
+//좋아하는 영화 목록에서 삭제하기
+router.post('/removeFromFavorite', (req, res) => {
+    Favorite.findOneAndDelete({ movieId: req.body.movieId, userFrom: req.body.userFrom })
+        .exec((err, result) => {
+            if (err) return res.status(400).send(err);
+            res.status(200).json({ success: true });
         })
 })
 
