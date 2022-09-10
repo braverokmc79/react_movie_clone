@@ -69,6 +69,7 @@ function LandingPage() {
                                 <React.Fragment key={index}>
                                     {movie.poster_path &&
                                         <GridCards path={movie.poster_path}
+                                            landingPage={true}
                                             image={movie.poster_path ?
                                                 `${IMAGE_BASE_URL}w500${movie.poster_path}` : null}
                                             movieId={movie.id}
@@ -79,7 +80,6 @@ function LandingPage() {
                             ))
 
                         }
-
                     </Row>
 
 
