@@ -22,8 +22,10 @@ function GridCards(props) {
         return (
             <Col lg={6} md={8} xs={24}>
                 <div style={{ position: 'relative', textAlign: 'center' }} >
-                    <img src={props.image} alt={props.characterName} className="img"
-                        style={{ width: "80%", height: "auto", maxHeight: '400px' }} />
+                    {props.image &&
+                        <img src={props.image} alt={props.characterName} className="img"
+                            style={{ width: "80%", height: "auto", maxHeight: '400px' }} />
+                    }
                 </div>
             </Col>
         )

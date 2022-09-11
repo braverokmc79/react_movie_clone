@@ -8,6 +8,7 @@ import MainImage from '../LandingPage/Sections/MainImage';
 import MovieInfo from './Sections/MovieInfo';
 import Favorite from './Sections/Favorite';
 import { useSelector } from 'react-redux';
+import Comment from './Sections/Comment';
 
 
 function MovieDetail(props) {
@@ -121,6 +122,8 @@ function MovieDetail(props) {
                     </Row>
                 }
 
+
+                <Comment movieId={movieId} movie={Movie} />
             </div>
 
 
