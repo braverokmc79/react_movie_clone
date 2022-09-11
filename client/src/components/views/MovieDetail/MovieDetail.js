@@ -1,4 +1,4 @@
-import { Button, Row } from 'antd';
+import { Avatar, Button, List, Row } from 'antd';
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { API_URL, IMAGE_BASE_URL } from '../../Config';
@@ -9,6 +9,8 @@ import MovieInfo from './Sections/MovieInfo';
 import Favorite from './Sections/Favorite';
 import { useSelector } from 'react-redux';
 import Comment from './Sections/Comment';
+import LikeDislikes from './Sections/LikeDislikes';
+import './Sections/MovieDetail.css';
 
 
 function MovieDetail(props) {
@@ -18,6 +20,8 @@ function MovieDetail(props) {
     const [Casts, setCasts] = useState([]);
     const [ActorToggle, setActorToggle] = useState(false);
     const user = useSelector(state => state.user)
+
+
     useEffect(() => {
 
         let endpointCrew = `${API_URL}movie/${movieId}/credits?api_key=${MOVIE_API_KEY}`;
@@ -44,6 +48,7 @@ function MovieDetail(props) {
             })
 
     }, [])
+
 
 
     return (
@@ -84,7 +89,7 @@ function MovieDetail(props) {
 
                 <div style={{ display: 'flex', justifyContent: 'center', margin: '2rem' }}>
                     <Button onClick={() => (setActorToggle(!ActorToggle))}>
-                        Toggle Actor View
+                        출연배우 보기
                     </Button>
                 </div>
 
@@ -121,6 +126,9 @@ function MovieDetail(props) {
                         }
                     </Row>
                 }
+
+                <List.Item style={{ justifyContent: "center" }} actions={[<LikeDislikes video userId={localStorage.getItem("userId")} movieId={movieId} />]}>
+                </List.Item>
 
 
                 <Comment movieId={movieId} movie={Movie} />

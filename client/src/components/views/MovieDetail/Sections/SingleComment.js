@@ -1,16 +1,16 @@
 import React from 'react'
-import { Comment as AntdComment, Avatar, Button, Input } from 'antd';
+import { Comment as AntdComment, Avatar, Button } from 'antd';
 import { useState } from 'react';
-import { useParams } from 'react-router-dom';
 import Axios from 'axios';
 import { useSelector } from 'react-redux';
+import LikeDislikes from './LikeDislikes';
 
 
 function SingleComment(props) {
     const [OpenReply, setOpenReply] = useState(false);
 
     const user = useSelector(state => state.user);
-    const [CommentValue, setCommentValue] = useState();
+    const [CommentValue, setCommentValue] = useState("");
 
 
 
@@ -19,6 +19,7 @@ function SingleComment(props) {
     }
 
     const actions = [
+        <LikeDislikes userId={localStorage.getItem("userId")} commentId={props.comment._id} />,
         <span style={{ fontSize: '12px', margin: 0, color: 'black', cursor: "pointer", fontWeight: "bold" }}
             onClick={onClickRplyOpen} key="comment-basic-reply-to">댓글작성</span>
     ]
@@ -29,6 +30,12 @@ function SingleComment(props) {
             alert("댓글은 로그인 후 작성 가능합니다.");
             return;
         }
+        console.log("CommentValue : ", CommentValue);
+        if (!CommentValue) {
+            alert("내용을 입력해 주세요.");
+            return;
+        }
+
         const variable = {
             content: CommentValue,
             writer: user.userData._id,

@@ -46,6 +46,10 @@ function Comment(props) {
             alert("댓글은 로그인 후 작성 가능합니다.");
             return;
         }
+        if (!CommentValue) {
+            alert("내용을 입력해 주세요.");
+            return;
+        }
         const variable = {
             content: CommentValue,
             writer: user.userData._id,
@@ -97,7 +101,7 @@ function Comment(props) {
 
             {/* Root Comment Form */}
 
-            <form style={{ display: 'flex' }}>
+            <form style={{ display: 'flex', marginTop: 50 }}>
                 <textarea style={{ width: '100%', borderRadius: '5px' }}
                     onChange={handleClick} value={CommentValue} placeholder='댓글을 작성해 주세요.'></textarea>
                 <br />
